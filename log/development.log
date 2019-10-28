@@ -890,3 +890,39 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/posts/2" for 86.25.49.110 at 2019-10-28 13:05:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 331ms (Views: 292.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/2/edit" for 86.25.49.110 at 2019-10-28 13:05:52 +0000
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/posts/2" for 86.25.49.110 at 2019-10-28 13:05:55 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"94BXZ5UasjsDHVCnJGWSd0SyDYh9Hjd9P/I5UyxJWp3Sz+RIfcebmssU3PWbq7bNWsMnMc9DPF2Q1UM/GDUKvA==", "post"=>{"title"=>"Rails Introduction bbb", "description"=>"asdfasdfddd"}, "commit"=>"Update Post", "id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "asdfasdfddd"], ["updated_at", "2019-10-28 13:05:55.360426"], ["id", 2]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://165.227.133.20:37517/posts/2
+Completed 302 Found in 41ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/posts/2" for 86.25.49.110 at 2019-10-28 13:05:55 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
