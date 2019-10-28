@@ -826,3 +826,41 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/posts" for 86.25.49.110 at 2019-10-28 13:03:44 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 271ms (Views: 252.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/1" for 86.25.49.110 at 2019-10-28 13:03:49 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/edit" for 86.25.49.110 at 2019-10-28 13:03:53 +0000
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 38ms (Views: 35.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/1" for 86.25.49.110 at 2019-10-28 13:03:55 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gzQRwNJKE+0tc6nmR2HExOnR0tQN7/kM6SdRYzY/Zx+me6LvOpc6TOV6JbT4r+B+96D4bb+y8ixGACsPAkM3Pg==", "post"=>{"title"=>"Rails Introduction Quiz", "description"=>"asdfasdf"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", nil], ["description", nil], ["updated_at", "2019-10-28 13:03:55.717927"], ["id", 1]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://165.227.133.20:37517/posts/1
+Completed 302 Found in 11ms (ActiveRecord: 5.8ms)
+
+
